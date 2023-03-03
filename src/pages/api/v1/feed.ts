@@ -1,4 +1,5 @@
 import { createHandler, Get } from 'next-api-decorators';
+import { fetchData } from '@/pages/api/v1/helpers/fetchData';
 
 class FetchRegistersData {
   // GET /api/v1/feed
