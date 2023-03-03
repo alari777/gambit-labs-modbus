@@ -6,9 +6,15 @@ class FetchRegistersData {
   @Get()
   async fetchRegistersData(): Promise<any> {
     const result = await fetchData();
-    console.log(result);
+    const arr = result.split('\n');
+    const date = arr[0];
+    arr.pop();
+    const data = arr.map((value) => {
+      return Number(value.split(':')[1]);
+    });
     return {
-      registersData: result,
+      date,
+      data,
     };
   }
 }
