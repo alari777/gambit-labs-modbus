@@ -1,9 +1,9 @@
 // This function downloads remote text file with registers data
-export async function fetchData(url: string): Promise<string> {
-  const response = await fetch(url, {
+export async function fetchData(): Promise<string> {
+  const response = await fetch('http://tuftuf.gambitlabs.fi/feed.txt', {
     method: 'GET',
     headers: {
-      'content-type': 'text/csv;charset=UTF-8',
+      'content-type': 'text/plain;charset=UTF-8',
     },
   });
   if (response.status === 200) {
