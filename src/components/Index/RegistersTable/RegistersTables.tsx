@@ -1,8 +1,61 @@
-import { FC } from 'react';
+import { FC, FormEvent, useState } from 'react';
+import { ModbusRegisterType } from '@/pages/api/types/FormFetchingDataType';
 
-const TripsTable: FC = () => {
+const RegistersTable: FC = () => {
+  const [classSpinner, setClassSpinner] = useState<boolean>(false);
+  const [report, setReport] = useState<string[]>([]);
+  const [registersValues, setRegistersValues] =
+    useState<ModbusRegisterType[]>();
+
+  const addStation = async (
+    event: FormEvent<HTMLFormElement>
+  ): Promise<void> => {
+    event.preventDefault();
+    setClassSpinner(true);
+    setReport([]);
+    setReport((report) => [
+      ...report,
+      'Wait a little bit. Station is adding ...',
+    ]);
+    try {
+      const response = await fetch('/api/v1/feed', {
+        method: 'GET',
+      });
+      if (response.status === 200) {
+        const json = await response.json();
+        const { data } = json;
+        setRegistersValues(data);
+        setReport((report) => [...report, 'Station was added successfully.']);
+      } else {
+        setReport((report) => [...report, 'Station was not added.']);
+      }
+    } catch (err) {
+      setReport((report) => [
+        ...report,
+        'Station was not added. Something went wrong. Please try again later.',
+      ]);
+    }
+    setClassSpinner(false);
+  };
+
   return (
     <>
+      <form onSubmit={addStation}>
+        <div className='form-row'>
+          <div className='col-md-9'>
+            <button type='submit' className='btn btn-primary mt-3'>
+              {classSpinner && (
+                <span
+                  className='spinner-border spinner-border-sm'
+                  role='status'
+                  aria-hidden='true'
+                ></span>
+              )}
+              Feed registers
+            </button>
+          </div>
+        </div>
+      </form>
       <table className='table'>
         <thead>
           <tr>
@@ -15,18 +68,23 @@ const TripsTable: FC = () => {
           </tr>
         </thead>
         <tbody>
-          <tr key='testtest'>
-            <td>1</td>
-            <td>0001-0002</td>
-            <td>2</td>
-            <td>Flow Rate</td>
-            <td>777</td>
-            <td>Unit: m3/h </td>
-          </tr>
+          {registersValues &&
+            registersValues.map(
+              (registerValue: ModbusRegisterType, index: number) => (
+                <tr key={registerValue.register}>
+                  <td>{index + 1}</td>
+                  <td>{registerValue.register}</td>
+                  <td>{registerValue.number}</td>
+                  <td>{registerValue.variableName}</td>
+                  <td>{registerValue.value}</td>
+                  <td>{registerValue.note}</td>
+                </tr>
+              )
+            )}
         </tbody>
       </table>
     </>
   );
 };
 
-export default TripsTable;
+export default RegistersTable;
