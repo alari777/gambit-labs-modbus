@@ -1,4 +1,4 @@
-import { Modbus } from '@/pages/api/classes/Modbus.class';
+import { Modbus } from '../../classes/Modbus.class';
 
 export function calcLong(index: number): number {
   const modbus = Modbus.init();
