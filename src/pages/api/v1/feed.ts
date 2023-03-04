@@ -1,20 +1,19 @@
 import { createHandler, Get } from 'next-api-decorators';
 import { fetchData } from '@/pages/api/v1/helpers/fetchData';
+import { formFetchingData } from '@/pages/api/utils/formFetchingData/formFetchingData';
+import { FormFetchingDataType } from '@/pages/api/types/FormFetchingDataType';
+import { responseRegistersValues } from '@/pages/api/utils/responseRegistersValues/responseRegistersValues';
 
 class FetchRegistersData {
   // GET /api/v1/feed
   @Get()
-  async fetchRegistersData(): Promise<any> {
+  async fetchRegistersData(): Promise<FormFetchingDataType> {
     const result = await fetchData();
-    const arr = result.split('\n');
-    const date = arr[0];
-    arr.pop();
-    const data = arr.map((value) => {
-      return Number(value.split(':')[1]);
-    });
+    const foo1 = formFetchingData(result);
+    const foo2 = responseRegistersValues();
     return {
-      date,
-      data,
+      date: foo1.date,
+      data: foo2,
     };
   }
 }
