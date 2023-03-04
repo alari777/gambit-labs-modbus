@@ -1,7 +1,9 @@
-import { FormFetchingDataType } from '@/pages/api/types/FormFetchingDataType';
 import { Modbus } from '@/pages/api/classes/Modbus.class';
 
-export function formFetchingData(str: string): FormFetchingDataType {
+export function formFetchingData(str: string): {
+  date: string;
+  data: number[];
+} {
   const modbus = Modbus.init();
   const arr: string[] = str.split('\n');
   const date = arr[0];
