@@ -3,6 +3,7 @@ import { FC } from 'react';
 import RegistersTables from '@/components/Index/RegistersTable/RegistersTables';
 import { useUser } from '@auth0/nextjs-auth0/client';
 
+// @ts-ignore
 const ProtectedHomePage: FC = () => {
   const { user, error, isLoading } = useUser();
 
