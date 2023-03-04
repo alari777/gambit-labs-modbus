@@ -1,14 +1,7 @@
 import { calcLong } from '@/pages/api/utils/calcLong/calcLong';
 import { calcReal } from '@/pages/api/utils/calcReal/calcReal';
 import { calcInt8 } from '@/pages/api/utils/calcInt8/calcInt8';
-
-type ModbusRegisterType = {
-  register: string;
-  number: number;
-  variableName: string;
-  value: number;
-  note: string;
-};
+import { ModbusRegisterType } from '@/pages/api/types/FormFetchingDataType';
 
 export function responseRegistersValues(): ModbusRegisterType[] {
   return [
