@@ -1,14 +1,8 @@
 import Head from 'next/head';
-import { FC, useState } from 'react';
+import { FC } from 'react';
 import RegistersTables from '@/components/Index/RegistersTable/RegistersTables';
 
 const HomePage: FC = () => {
-  const [isLoading, setIsLoading] = useState<boolean>(true);
-
-  if (!isLoading) {
-    return <h2>Wait a little bit. Data are loading ...</h2>;
-  }
-
   return (
     <>
       <Head>
