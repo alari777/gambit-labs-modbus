@@ -56,33 +56,36 @@ const RegistersTable: FC = () => {
           </div>
         </div>
       </form>
-      <table className='table'>
-        <thead>
-          <tr>
-            <th scope='col'>#</th>
-            <th scope='col'>Register</th>
-            <th scope='col'>Number of bytes</th>
-            <th scope='col'>Variable name</th>
-            <th scope='col'>Value</th>
-            <th scope='col'>Note</th>
-          </tr>
-        </thead>
-        <tbody>
-          {registersValues &&
-            registersValues.map(
-              (registerValue: ModbusRegisterType, index: number) => (
-                <tr key={registerValue.register}>
-                  <td>{index + 1}</td>
-                  <td>{registerValue.register}</td>
-                  <td>{registerValue.number}</td>
-                  <td>{registerValue.variableName}</td>
-                  <td>{registerValue.value}</td>
-                  <td>{registerValue.note}</td>
-                </tr>
-              )
-            )}
-        </tbody>
-      </table>
+
+      <div className='row justify-content-center'>
+        <div className='col-auto'>
+          <table className='table table-striped table-bordered table-responsive w-auto'>
+            <thead>
+              <tr>
+                <th scope='col'>#</th>
+                <th scope='col'>Register</th>
+                <th scope='col'>Variable name</th>
+                <th scope='col'>Value</th>
+                <th scope='col'>Note</th>
+              </tr>
+            </thead>
+            <tbody>
+              {registersValues &&
+                registersValues.map(
+                  (registerValue: ModbusRegisterType, index: number) => (
+                    <tr key={registerValue.register}>
+                      <td>{index + 1}</td>
+                      <td>{registerValue.register}</td>
+                      <td>{registerValue.variableName}</td>
+                      <td>{registerValue.value}</td>
+                      <td>{registerValue.note}</td>
+                    </tr>
+                  )
+                )}
+            </tbody>
+          </table>
+        </div>
+      </div>
     </>
   );
 };
