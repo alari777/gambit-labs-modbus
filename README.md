@@ -4,8 +4,8 @@
 - [Spoiler](#spoiler)
 - [Introduction](#introduction)
 
-[How to start](#how_to_start)
-[Authentication](#auth0_authentication)
+[How to start](#how_to_start)  
+[Authentication](#auth0_authentication)  
 [Tests](#tests)  
 [GitHub actions](#github_actions)
 
