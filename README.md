@@ -96,3 +96,12 @@ Remind that you can open and see how this application works at:
 
 To start tests: `npm run test`  
 To start coverage of tests: `npm run test:coverage`  
+
+# <a name="github_actions">GitHub actions</a>
+
+After creating new `pull request` two GitHub actions: `run_tests` and `push_docker` are run.  
+You can find them in folder `.github/workflows/`:
+- Action `run_tests` runs tests.
+- Action `push_docker` creates Docker image of this project and pushes it in GitHub package.  
+  You can find it here: `https://github.com/alari777/gambit-labs-modbus/pkgs/container/gambit-labs-modbus%2Fgambit-labs-modbus`.  
+  This action depends on `run_tests`.
