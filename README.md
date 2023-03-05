@@ -105,3 +105,9 @@ You can find them in folder `.github/workflows/`:
 - Action `push_docker` creates Docker image of this project and pushes it in GitHub package.  
   You can find it here: `https://github.com/alari777/gambit-labs-modbus/pkgs/container/gambit-labs-modbus%2Fgambit-labs-modbus`.  
   This action depends on `run_tests`.
+
+# <a name="in_conclusion">In conclusion</a>
+
+It is interesting task.  
+I have learned new things and protocol Modbus is very useful.  
+I think I will figure out more information how it works and how can I implement it.
