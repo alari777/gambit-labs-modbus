@@ -91,3 +91,8 @@ sudo docker logs --tail 300 -f gambit-labs-modbus
 P.S.  
 Remind that you can open and see how this application works at:
 [Gambit-labs Modbus project at custom my instance](http://34.23.45.250/)
+
+# <a name="tests">Tests</a>
+
+To start tests: `npm run test`  
+To start coverage of tests: `npm run test:coverage`  
