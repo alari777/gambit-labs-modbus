@@ -4,7 +4,8 @@
 - [Spoiler](#spoiler)
 - [Introduction](#introduction)
 
-[How to start](#how_to_start)  
+[How to start](#how_to_start)
+[Authentication](#auth0_authentication)
 [Tests](#tests)  
 [GitHub actions](#github_actions)
 
@@ -91,6 +92,23 @@ sudo docker logs --tail 300 -f gambit-labs-modbus
 P.S.  
 Remind that you can open and see how this application works at:
 [Gambit-labs Modbus project at custom my instance](http://34.23.45.250/)
+
+# <a name="auth0_authentication">Authentication</a>
+Authentication works using `Auth0`.  
+[Auth0](https://auth0.com/) provides this service. There I created an auth-application and implemented it at this project.  
+You can see how it works:
+- Start this project or open it at `Vercel`/`Custom instance`
+- Find in `header` link named `Login`. Click at it.
+- Follow next instructions.
+- After successful authentication you can see the `Protected page`. Actually it is a clone page of the `index` page.
+- You can click `Logout` in order to close your Authentication session.
+
+I want to add that this `Authentication application` provides permissions only on next domains:
+- https://*.vercel.app
+- http://localhost:3000
+- http://34.23.45.250
+
+For this reason you can start docker container of this project with `authentication`   ONLY at the LOCAL MACHINE.
 
 # <a name="tests">Tests</a>
 
