@@ -7,6 +7,6 @@ export type ModbusRegisterType = {
   register: string;
   number: number;
   variableName: string;
-  value: number;
+  value: string | number;
   note: string;
 };
