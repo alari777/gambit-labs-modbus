@@ -5,6 +5,7 @@
 - [Introduction](#introduction)
 
 [How to start](#how_to_start)  
+[How it works](#how_it_works)  
 [Authentication](#auth0_authentication)  
 [Tests](#tests)  
 [GitHub actions](#github_actions)
@@ -109,6 +110,18 @@ I want to add that this `Authentication application` provides permissions only o
 - http://34.23.45.250
 
 For this reason you can start docker container of this project with `authentication`   ONLY at the LOCAL MACHINE.
+
+# <a name="how_it_works">How it works</a>
+
+As I understand feed gives a generic raw binary data. 
+JS provides few approaches how to work with the same data. 
+I decided to use `ArrayBuffer` and `DataView`. 
+The first one creates a new `ArrayBuffer` of the given length in bytes. 
+The second one provides a low-level interface for reading and writing multiple number types in a binary `ArrayBuffer`. 
+As I see from documentation there are some types like: `REAL4`, `LONG`, `INTEGER` and other. 
+All these types can be to calculate via methods of `DataView`. 
+For example `setUint8`/`getUint8`, `setUint16`/`getUint16` and others. 
+It depends on what kind of type of Modbus the current register is using. My functions just wrappers the work with `ArrayBuffer` and `DataView`.
 
 # <a name="tests">Tests</a>
 
