@@ -6,8 +6,19 @@ import { useUser } from '@auth0/nextjs-auth0/client';
 const Header: FC = () => {
   const { user, error, isLoading } = useUser();
 
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading)
+    return (
+      <header className={styles.header}>
+        <nav className='navbar navbar-expand-lg navbar-light'>
+          <div className='collapse navbar-collapse' id='navbarNavAltMarkup'>
+            Header is loading ...
+          </div>
+        </nav>
+      </header>
+    );
+
   if (error) return <div>{error.message}</div>;
+
   return (
     <header className={styles.header}>
       <nav className='navbar navbar-expand-lg navbar-light'>
