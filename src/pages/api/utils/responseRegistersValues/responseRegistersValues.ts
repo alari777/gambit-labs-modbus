@@ -38,14 +38,14 @@ export function responseRegistersValues(): ModbusRegisterType[] {
       number: 2,
       variableName: 'Positive accumulator',
       value: calcLong(9),
-      note: '-',
+      note: '',
     },
     {
       register: '0011-0012',
       number: 2,
       variableName: 'Positive decimal fraction',
       value: calcReal(11),
-      note: '-',
+      note: '',
     },
     {
       register: '0013-0014',
@@ -59,7 +59,7 @@ export function responseRegistersValues(): ModbusRegisterType[] {
       number: 2,
       variableName: 'Negative decimal fraction',
       value: calcReal(15),
-      note: '-',
+      note: '',
     },
     {
       register: '0017-0018',
